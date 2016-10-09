@@ -18,43 +18,27 @@ public class LogsManager {
     public static final int OUTGOING = 594;
     public static final int TOTAL = 579;
 
-    private static Cursor cursor;
-    private static Cursor incomingCursor;
-    private static Cursor outgoingCursor;
-
     private Context context;
+    private Activity activity;
 
     public LogsManager(Activity activity) {
+        this.context = activity.getApplicationContext();
+        this.activity = activity;
 
+    }
+
+    public int getOutgoingDuration() {
+        int sum = 0;
+
+        Cursor cursor;
         if (ActivityCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED) {
 
-            cursor = activity.getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
-
-            incomingCursor = activity.getContentResolver().query(CallLog.Calls.CONTENT_URI, null,
-                    CallLog.Calls.TYPE + " = " + CallLog.Calls.INCOMING_TYPE, null, null);
-
-            outgoingCursor = activity.getContentResolver().query(CallLog.Calls.CONTENT_URI, null,
+            cursor = activity.getContentResolver().query(CallLog.Calls.CONTENT_URI, null,
                     CallLog.Calls.TYPE + " = " + CallLog.Calls.OUTGOING_TYPE, null, null);
 
         } else {
             throw new IllegalStateException("permission READ_CALL_LOG not granted");
         }
-
-        this.context = activity.getApplicationContext();
-
-    }
-
-    public static void exit() {
-        if (!cursor.isClosed()) {
-            cursor.close();
-            incomingCursor.close();
-            outgoingCursor.close();
-        }
-    }
-
-    public int getOutgoingDuration() {
-        int sum = 0;
-        Cursor cursor = outgoingCursor;
         int duration = cursor.getColumnIndex(CallLog.Calls.DURATION);
 
         while (cursor.moveToNext()) {
@@ -62,12 +46,21 @@ public class LogsManager {
             sum += Integer.parseInt(callDuration);
         }
 
+        cursor.close();
         return sum;
     }
 
     public int getIncomingDuration() {
         int sum = 0;
-        Cursor cursor = incomingCursor;
+        Cursor cursor;
+        if (ActivityCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED) {
+
+            cursor = activity.getContentResolver().query(CallLog.Calls.CONTENT_URI, null,
+                    CallLog.Calls.TYPE + " = " + CallLog.Calls.INCOMING_TYPE, null, null);
+
+        } else {
+            throw new IllegalStateException("permission READ_CALL_LOG not granted");
+        }
         int duration = cursor.getColumnIndex(CallLog.Calls.DURATION);
 
         while (cursor.moveToNext()) {
@@ -75,12 +68,20 @@ public class LogsManager {
             sum += Integer.parseInt(callDuration);
         }
 
+        cursor.close();
         return sum;
     }
 
     public int getTotalDuration() {
         int sum = 0;
+        Cursor cursor;
+        if (ActivityCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED) {
 
+            cursor = activity.getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
+
+        } else {
+            throw new IllegalStateException("permission READ_CALL_LOG not granted");
+        }
         int duration = cursor.getColumnIndex(CallLog.Calls.DURATION);
 
         while (cursor.moveToNext()) {
@@ -88,6 +89,7 @@ public class LogsManager {
             sum += Integer.parseInt(callDuration);
         }
 
+        cursor.close();
         return sum;
     }
 
@@ -143,6 +145,15 @@ public class LogsManager {
     public List<LogObject> getLogs(){
         List<LogObject> logs = new ArrayList<>();
 
+        Cursor cursor;
+        if (ActivityCompat.checkSelfPermission(activity.getApplicationContext(), Manifest.permission.READ_CALL_LOG) == PackageManager.PERMISSION_GRANTED) {
+
+            cursor = activity.getContentResolver().query(CallLog.Calls.CONTENT_URI, null, null, null, null);
+
+        } else {
+            throw new IllegalStateException("permission READ_CALL_LOG not granted");
+        }
+
         int number = cursor.getColumnIndex(CallLog.Calls.NUMBER);
         int type = cursor.getColumnIndex(CallLog.Calls.TYPE);
         int date = cursor.getColumnIndex(CallLog.Calls.DATE);
@@ -159,6 +170,7 @@ public class LogsManager {
             logs.add(log);
         }
 
+        cursor.close();
         return logs;
     }
 
