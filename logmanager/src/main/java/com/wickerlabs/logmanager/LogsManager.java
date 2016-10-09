@@ -52,7 +52,7 @@ public class LogsManager {
         }
     }
 
-    private int getOutgoingDuration() {
+    public int getOutgoingDuration() {
         int sum = 0;
         Cursor cursor = outgoingCursor;
         int duration = cursor.getColumnIndex(CallLog.Calls.DURATION);
@@ -65,7 +65,7 @@ public class LogsManager {
         return sum;
     }
 
-    private int getIncomingDuration() {
+    public int getIncomingDuration() {
         int sum = 0;
         Cursor cursor = incomingCursor;
         int duration = cursor.getColumnIndex(CallLog.Calls.DURATION);
@@ -78,7 +78,7 @@ public class LogsManager {
         return sum;
     }
 
-    private int getTotalDuration() {
+    public int getTotalDuration() {
         int sum = 0;
 
         int duration = cursor.getColumnIndex(CallLog.Calls.DURATION);
