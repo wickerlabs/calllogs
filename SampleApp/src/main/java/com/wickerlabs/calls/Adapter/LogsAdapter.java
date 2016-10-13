@@ -57,11 +57,9 @@ public class LogsAdapter extends ArrayAdapter<LogObject> {
         ImageView imageView = (ImageView) row.findViewById(R.id.callImage);
 
         LogObject log = getItem(position);
-        long dateLong = Long.parseLong(log.getDate());
-        Date date1 = new Date(dateLong);
+        Date date1 = new Date(log.getDate());
 
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.ERA_FIELD, DateFormat.SHORT);
-
 
         phone.setText(log.getContactName());
         duration.setText(log.getCoolDuration());
