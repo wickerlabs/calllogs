@@ -85,7 +85,20 @@ Using LogObjects
 
 Examples
 --------
-For the full usage example, check out the sample app in the repository.
+Retriving a list of all call logs:
+
+    ListView logList = (ListView) findViewById(R.id.LogsList);
+
+    LogsManager logsManager = new LogsManager(this);
+
+    List<LogObject> callLogs = logsManager.getLogs(LogsManager.ALL_CALLS);
+
+    LogsAdapter logsAdapter = new LogsAdapter(this, R.layout.log_layout, callLogs);
+
+    logList.setAdapter(logsAdapter);
+
+
+be sure to check out the sample app in the repository.
 
 Acknowledgements
 ----------------
