@@ -26,21 +26,25 @@ Installation
 	
 **Step 3**. Appropriate permission in the manifest file
 
+```xml
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
+```
 Usage
 -------------
 
  - Initialization
 
-     `LogsManager logsManager = new LogsManager(context);`
+	```java
+     	LogsManager logsManager = new LogsManager(context);
+	```
 
  
  - Getting a list of call logs
  
-
-     `List<LogObject> callLogs = logsManager.getLogs(type);`
+	```java
+     	List<LogObject> callLogs = logsManager.getLogs(type);
+	```
 
   
   >  Available list types :
@@ -74,7 +78,9 @@ Usage
 Using LogObjects
 --------------------
 - Initialization
-> `LogObject logObject = new LogObject(context);`
+> 	```java 
+	LogObject logObject = new LogObject(context);
+	```
 
 - Some useful methods
  
@@ -92,18 +98,19 @@ Examples
 --------
 Retriving a list of all call logs:
 
-    ListView logList = (ListView) findViewById(R.id.LogsList);
+	```java
+   	ListView logList = (ListView) findViewById(R.id.LogsList);
 
-    LogsManager logsManager = new LogsManager(this);
+    	LogsManager logsManager = new LogsManager(this);
 
-    List<LogObject> callLogs = logsManager.getLogs(LogsManager.ALL_CALLS);
+    	List<LogObject> callLogs = logsManager.getLogs(LogsManager.ALL_CALLS);
 
-    LogsAdapter logsAdapter = new LogsAdapter(this, R.layout.log_layout, callLogs);
+    	LogsAdapter logsAdapter = new LogsAdapter(this, R.layout.log_layout, callLogs);
 
-    logList.setAdapter(logsAdapter);
+    	logList.setAdapter(logsAdapter);
+	```
 
-
-be sure to check out the sample app in the repository.
+be sure to check out the [sample[(https://github.com/wickerlabs/CallLogs/tree/master/SampleApp) app in the repository.
 
 Acknowledgements
 ----------------
