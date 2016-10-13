@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         ListView logList = (ListView) findViewById(R.id.LogsList);
 
         LogsManager logsManager = new LogsManager(this);
+
         List<LogObject> callLogs = logsManager.getLogs(LogsManager.ALL_CALLS);
 
         LogsAdapter logsAdapter = new LogsAdapter(this, R.layout.log_layout, callLogs);
