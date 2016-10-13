@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 
+import com.wickerlabs.calls.Adapter.LogsAdapter;
 import com.wickerlabs.logmanager.LogObject;
 import com.wickerlabs.logmanager.LogsManager;
 
@@ -19,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         ListView logList = (ListView) findViewById(R.id.LogsList);
 
         LogsManager logsManager = new LogsManager(this);
+        List<LogObject> callLogs = logsManager.getLogs(LogsManager.ALL_CALLS);
+        LogsAdapter logsAdapter = new LogsAdapter(this, R.layout.log_layout, callLogs);
 
-        List<LogObject> callLogs = logsManager.getLogs();
-
-
+        logList.setAdapter(logsAdapter);
     }
 }
