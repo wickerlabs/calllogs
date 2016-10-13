@@ -13,6 +13,8 @@ import com.wickerlabs.calls.R;
 import com.wickerlabs.logmanager.LogObject;
 import com.wickerlabs.logmanager.LogsManager;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class LogsAdapter extends ArrayAdapter<LogObject> {
@@ -55,10 +57,15 @@ public class LogsAdapter extends ArrayAdapter<LogObject> {
         ImageView imageView = (ImageView) row.findViewById(R.id.callImage);
 
         LogObject log = getItem(position);
+        long dateLong = Long.parseLong(log.getDate());
+        Date date1 = new Date(dateLong);
+
+        DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.ERA_FIELD, DateFormat.SHORT);
+
 
         phone.setText(log.getContactName());
-        duration.setText(log.getDuration());
-        date.setText(log.getDate());
+        duration.setText(log.getCoolDuration());
+        date.setText(dateFormat.format(date1));
 
         switch (log.getType()) {
 

@@ -182,7 +182,7 @@ public class LogsManager {
                 log.setNumber(cursor.getString(number));
                 log.setType(cursor.getInt(type));
                 log.setDuration(cursor.getInt(duration));
-                log.setDate(cursor.getString(date));
+                log.setDate(cursor.getLong(date));
 
                 logs.add(log);
             }

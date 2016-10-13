@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:padding="5dp">
 
 
     <TextView
@@ -21,8 +21,8 @@
 
     <ImageView
         android:id="@+id/callImage"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
         android:layout_alignTop="@+id/phoneNum"
         android:layout_marginRight="15dp"
         android:scaleType="fitCenter"
@@ -33,7 +33,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/phoneNum"
-        android:layout_marginTop="3dp"
         android:layout_toEndOf="@+id/callImage"
         android:layout_toRightOf="@+id/callImage"
         android:text="Duration"
@@ -44,9 +43,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/callDuration"
-        android:layout_marginTop="3dp"
         android:layout_toEndOf="@+id/callImage"
         android:layout_toRightOf="@+id/callImage"
         android:text="Date"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="16sp" />
 </RelativeLayout>

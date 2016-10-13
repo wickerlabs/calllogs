@@ -9,7 +9,8 @@ import android.provider.ContactsContract;
 import java.text.DecimalFormat;
 
 public class LogObject {
-    private String number, date;
+    private String number;
+    private long date;
     private int duration, type;
     private Context context;
 
@@ -33,11 +34,11 @@ public class LogObject {
         this.type = type;
     }
 
-    public String getDate() {
+    public long getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
