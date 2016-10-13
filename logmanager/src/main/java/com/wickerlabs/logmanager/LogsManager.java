@@ -13,8 +13,9 @@ import java.util.List;
 
 public class LogsManager {
 
-    public static final int INCOMING = 93;
-    public static final int OUTGOING = 594;
+    public static final int INCOMING = CallLog.Calls.INCOMING_TYPE;
+    public static final int OUTGOING = CallLog.Calls.OUTGOING_TYPE;
+    public static final int MISSED = CallLog.Calls.MISSED_TYPE;
     public static final int TOTAL = 579;
 
     public static final int INCOMING_CALLS = 672;
@@ -110,7 +111,7 @@ public class LogsManager {
                 sum = getTotalDuration();
                 break;
             default:
-                throw new IllegalStateException("Invalid type provided");
+                sum = 0;
         }
 
         String duration = "";
@@ -179,7 +180,7 @@ public class LogsManager {
                 LogObject log = new LogObject(context);
 
                 log.setNumber(cursor.getString(number));
-                log.setType(cursor.getString(type));
+                log.setType(cursor.getInt(type));
                 log.setDuration(cursor.getInt(duration));
                 log.setDate(cursor.getString(date));
 

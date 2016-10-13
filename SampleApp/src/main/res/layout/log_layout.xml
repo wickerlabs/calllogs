@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/phoneNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/callImage"
+        android:singleLine="true"
+        android:text="Phone number"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/callImage"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_alignTop="@+id/phoneNum"
+        android:layout_marginRight="15dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/missed" />
+
+    <TextView
+        android:id="@+id/callDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phoneNum"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/callImage"
+        android:layout_toRightOf="@+id/callImage"
+        android:text="Duration"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/callDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/callDuration"
+        android:layout_marginTop="3dp"
+        android:layout_toEndOf="@+id/callImage"
+        android:layout_toRightOf="@+id/callImage"
+        android:text="Date"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+</RelativeLayout>

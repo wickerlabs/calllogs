@@ -1,0 +1,14 @@
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  ~ Copyright (C) 2016 WickerLabs. inc - All Rights Reserved.                                     ~
+  ~                                                                                               ~
+  ~ NOTICE:  All information contained herein is, and remains the property of WickerLabs,         ~
+  ~ The intellectual and technical concepts contained herein are proprietary to WickerLabs.       ~
+  ~ Dissemination of this information or reproduction of this material                            ~
+  ~ is strictly forbidden unless prior permission is obtained from WickerLabs. inc                ~
+  ~                                                                                               ~
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>

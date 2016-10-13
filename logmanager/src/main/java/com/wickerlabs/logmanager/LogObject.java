@@ -6,9 +6,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
+import java.text.DecimalFormat;
+
 public class LogObject {
-    private String number, type, date;
-    private int duration;
+    private String number, date;
+    private int duration, type;
     private Context context;
 
     public LogObject(Context context) {
@@ -23,11 +25,11 @@ public class LogObject {
         this.number = number;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
@@ -45,6 +47,10 @@ public class LogObject {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public String getCoolDuration() {
+        return getCoolDuration(getDuration());
     }
 
     public String getContactName(){
@@ -66,6 +72,7 @@ public class LogObject {
         }
 
         String contactName = null;
+
         if(cursor.moveToFirst()) {
             contactName = cursor.getString(cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
         }
@@ -74,6 +81,40 @@ public class LogObject {
             cursor.close();
         }
 
-        return contactName;
+        return (contactName == null) ? phoneNumber : contactName;
+    }
+
+    private String getCoolDuration(float sum) {
+
+        String duration = "";
+        String result;
+
+        if (sum >= 0 && sum < 3600) {
+
+            result = String.valueOf(sum / 60);
+            String decimal = result.substring(0, result.lastIndexOf("."));
+            String point = "0" + result.substring(result.lastIndexOf("."));
+
+            int minutes = Integer.parseInt(decimal);
+            float seconds = Float.parseFloat(point) * 60;
+
+            DecimalFormat formatter = new DecimalFormat("#");
+            duration = minutes + " min " + formatter.format(seconds) + " secs";
+
+        } else if (sum >= 3600) {
+
+            result = String.valueOf(sum / 3600);
+            String decimal = result.substring(0, result.lastIndexOf("."));
+            String point = "0" + result.substring(result.lastIndexOf("."));
+
+            int hours = Integer.parseInt(decimal);
+            float minutes = Float.parseFloat(point) * 60;
+
+            DecimalFormat formatter = new DecimalFormat("#");
+            duration = hours + " hrs " + formatter.format(minutes) + " min";
+
+        }
+
+        return duration;
     }
 }
