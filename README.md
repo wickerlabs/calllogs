@@ -23,6 +23,11 @@ Installation
     dependencies {
 	        compile 'com.github.wickerlabs:CallLogs:1.06'
 	}
+	
+**Step 3**. Appropriate permission in the manifest file
+
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
 Usage
 -------------
