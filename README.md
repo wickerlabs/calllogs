@@ -110,7 +110,7 @@ Retriving a list of all call logs:
     	logList.setAdapter(logsAdapter);
 	```
 
-be sure to check out the [sample[(https://github.com/wickerlabs/CallLogs/tree/master/SampleApp) app in the repository.
+be sure to check out the [sample](https://github.com/wickerlabs/CallLogs/tree/master/SampleApp) app in the repository.
 
 Acknowledgements
 ----------------
@@ -118,7 +118,6 @@ Acknowledgements
 
 License
 -------
-
     Copyright 2016 Wickerlabs.
     
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -132,4 +131,3 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
-
