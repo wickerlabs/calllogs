@@ -24,12 +24,9 @@ Installation
 	        compile 'com.github.wickerlabs:CallLogs:1.06'
 	}
 	
-**Step 3**. Appropriate permission in the manifest file
+**Step 3**. Handle permissions (For API 23+)
+> For those using targeting API 23+, you should handle the runtime permissions for READ_CONTACTS and READ_CALL_LOG. As a reference check  out the sample app in the repository. Other than that, permissions are automatically added to the manifest file.
 
-```xml
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-```
 Usage
 -------------
 
