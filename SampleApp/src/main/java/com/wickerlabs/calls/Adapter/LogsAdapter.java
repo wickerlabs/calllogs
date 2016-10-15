@@ -1,7 +1,9 @@
 package com.wickerlabs.calls.Adapter;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.annotation.RequiresPermission;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +50,7 @@ public class LogsAdapter extends ArrayAdapter<LogObject> {
 
     @Override
     @SuppressLint("ViewHolder")
+    @RequiresPermission(Manifest.permission.READ_CONTACTS)
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = LayoutInflater.from(getContext()).inflate(resource, parent, false);
 
@@ -60,7 +63,6 @@ public class LogsAdapter extends ArrayAdapter<LogObject> {
         Date date1 = new Date(log.getDate());
 
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.ERA_FIELD, DateFormat.SHORT);
-
         phone.setText(log.getContactName());
         duration.setText(log.getCoolDuration());
         date.setText(dateFormat.format(date1));
