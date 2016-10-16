@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Call Logs by wickerlabs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Call Logs</h1>
+      <h2 class="project-tagline">Android libray for accessing device call logs</h2>
+      <a href="https://github.com/wickerlabs/CallLogs" class="btn">View on GitHub</a>
+      <a href="https://github.com/wickerlabs/CallLogs/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/wickerlabs/CallLogs/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="call-logs---android-library-for-accessing-device-call-logs" class="anchor" href="#call-logs---android-library-for-accessing-device-call-logs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><strong>Call Logs</strong> - Android library for accessing device call logs</h1>
+
+<p><a href="https://jitpack.io/#wickerlabs/CallLogs"><img src="https://jitpack.io/v/wickerlabs/CallLogs.svg" alt=""></a>
+<a href="http://android-arsenal.com/details/1/4523"><img src="https://img.shields.io/badge/Android%20Arsenal-Call%20logs-brightgreen.svg?style=flat" alt="Android Arsenal"></a></p>
+
+<p><img src="https://s25.postimg.org/3pxthhhhr/device_2016_10_13_150816.png" alt="Image of the library in action" title="screenshot"></p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p><strong>Step 1</strong>. Add the JitPack repository to your root build.gradle file.</p>
+
+<pre><code>allprojects {
+    repositories {
+        ...
+        maven { url "https://jitpack.io" }
+    }
+}
+</code></pre>
+
+<p><strong>Step 2</strong>. Add the library dependency to your app build.gradle file</p>
+
+<pre><code>dependencies {
+        compile 'com.github.wickerlabs:CallLogs:1.07'
+}
+</code></pre>
+
+<p><strong>Step 3</strong>. Handle permissions (For API 23+)</p>
+
+<blockquote>
+<p>For those targeting API 23+, you should handle the runtime permissions for READ_CONTACTS and READ_CALL_LOG. As a reference, check  out the sample app in the repository. Other than that, permissions are automatically added to the manifest file.</p>
+</blockquote>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<ul>
+<li>
+<p>Initialization</p>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-smi">LogsManager</span> logsManager <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">LogsManager</span>(context);</pre></div>
+</li>
+<li>
+<p>Getting a list of call logs</p>
+
+<div class="highlight highlight-source-java"><pre>    <span class="pl-k">List&lt;<span class="pl-smi">LogObject</span>&gt;</span> callLogs <span class="pl-k">=</span> logsManager<span class="pl-k">.</span>getLogs(type);</pre></div>
+
+<blockquote>
+<p>Available list types :</p>
+
+<p><strong><em>LogsManager.INCOMING_CALLS</em></strong>: for getting the list (LogObject) of all the incoming calls.</p>
+
+<p><strong><em>LogsManager.OUTGOING_CALLS</em></strong>: for getting the list (LogObject) of all the incoming calls.</p>
+
+<p><strong><em>LogsManager.MISSED_CALLS</em></strong>: for getting the list (LogObject) of all the incoming calls.</p>
+
+<p><strong><em>LogsManager.ALL_CALLS</em></strong>: for getting the list (LogObject) of all the calls.</p>
+</blockquote>
+</li>
+<li>
+<p>Getting call durations</p>
+
+<p><code>logsManager.getIncomingDuration()</code>: returns the number of seconds for all the incoming calls made.</p>
+
+<p><code>logsManager.getOutgoingDuration()</code>: returns the number of seconds for all the outgoing calls made.</p>
+
+<p><code>logsManager.getTotalDuration()</code>: returns the number of seconds for all the calls made.</p>
+
+<p><code>logsManager.getCoolDuration(type)</code>: returns a String in the form of  "<strong><em>x</em> hrs <em>xx</em> mins</strong>" or "<strong><em>xx</em> mins <em>xx</em> secs</strong>"</p>
+
+<blockquote>
+<p>Available duration types :</p>
+
+<p><strong><em>LogsManager.INCOMING</em></strong>: for getting duration for all the incoming calls.</p>
+
+<p><strong><em>LogsManager.OUTGOING</em></strong>: for getting duration for all the incoming calls.</p>
+
+<p><strong><em>LogsManager.TOTAL</em></strong>: for getting duration for all the calls.</p>
+</blockquote>
+</li>
+</ul>
+
+<h2>
+<a id="using-logobjects" class="anchor" href="#using-logobjects" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using LogObjects</h2>
+
+<ul>
+<li>
+<p>Initialization</p>
+
+<blockquote>
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">LogObject</span> logObject <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">LogObject</span>(context);</pre></div>
+</blockquote>
+
+<ul>
+<li>Some useful methods</li>
+</ul>
+
+<p><code>logObject.getDuration()</code>: returns an <code>int</code>  of the seconds used for that particular call.</p>
+
+<p><code>logObject.getNumber()</code>: returns a <code>String</code> of the number associated with the call made.</p>
+
+<p><code>logObject.getContactName()</code>: returns a <code>String</code> of the contact name for the number in the log, if not found, it returns the number.</p>
+
+<p><code>logObject.getType()</code>: returns an <code>int</code> for the type of the call log.</p>
+
+<p><code>logObject.getCoolDuration()</code>: returns a <code>String</code> in the form of  "<strong><em>x</em> hrs <em>xx</em> mins</strong>" or "<strong><em>xx</em> mins <em>xx</em> secs</strong>" based on the duration.</p>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>Retriving a list of all call logs:</p>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">ListView</span> logList <span class="pl-k">=</span> (<span class="pl-smi">ListView</span>) findViewById(<span class="pl-smi">R</span><span class="pl-k">.</span><span class="pl-smi">id<span class="pl-k">.</span>LogsList</span>);
+
+    <span class="pl-smi">LogsManager</span> logsManager <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">LogsManager</span>(<span class="pl-v">this</span>);
+
+    <span class="pl-k">List&lt;<span class="pl-smi">LogObject</span>&gt;</span> callLogs <span class="pl-k">=</span> logsManager<span class="pl-k">.</span>getLogs(<span class="pl-smi">LogsManager</span><span class="pl-c1"><span class="pl-k">.</span>ALL_CALLS</span>);
+
+    <span class="pl-smi">LogsAdapter</span> logsAdapter <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">LogsAdapter</span>(<span class="pl-v">this</span>, <span class="pl-smi">R</span><span class="pl-k">.</span>layout<span class="pl-k">.</span>log_layout, callLogs);
+
+    logList<span class="pl-k">.</span>setAdapter(logsAdapter);</pre></div>
+
+<p>be sure to check out the <a href="https://github.com/wickerlabs/CallLogs/tree/master/SampleApp">sample</a> app in the repository.</p>
+
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h2>
+
+<blockquote>
+<p>Icons made by <a href="http://www.flaticon.com/authors/madebyoliver">madebyoliver</a> from <a href="http://www.flaticon.com">www.flaticon.com</a> </p>
+</blockquote>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright 2016 Wickerlabs.</p>
+
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+
+<pre><code>http://www.apache.org/licenses/LICENSE-2.0
+</code></pre>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>
+</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/wickerlabs/CallLogs">Call Logs</a> is maintained by <a href="https://github.com/wickerlabs">wickerlabs</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
