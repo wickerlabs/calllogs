@@ -2,6 +2,7 @@
 **Call Logs** - Android library for accessing device call logs
 ================
 [![](https://jitpack.io/v/wickerlabs/CallLogs.svg)](https://jitpack.io/#wickerlabs/CallLogs)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Call%20logs-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4523)
 
 ![Image of the library in action](https://s25.postimg.org/3pxthhhhr/device_2016_10_13_150816.png "screenshot")
 
@@ -21,15 +22,12 @@ Installation
 **Step 2**. Add the library dependency to your app build.gradle file
 
     dependencies {
-	        compile 'com.github.wickerlabs:CallLogs:1.06'
+	        compile 'com.github.wickerlabs:CallLogs:1.07'
 	}
 	
-**Step 3**. Appropriate permission in the manifest file
+**Step 3**. Handle permissions (For API 23+)
+> For those targeting API 23+, you should handle the runtime permissions for READ_CONTACTS and READ_CALL_LOG. As a reference, check  out the sample app in the repository. Other than that, permissions are automatically added to the manifest file.
 
-```xml
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-```
 Usage
 -------------
 
