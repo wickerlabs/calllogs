@@ -22,7 +22,7 @@ Installation
 **Step 2**. Add the library dependency to your app build.gradle file
 
     dependencies {
-	        compile 'com.github.wickerlabs:CallLogs:1.07'
+	        compile 'com.github.wickerlabs:CallLogs:1+@aar'
 	}
 	
 **Step 3**. Handle permissions (For API 23+)
