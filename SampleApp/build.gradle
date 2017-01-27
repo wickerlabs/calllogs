@@ -24,5 +24,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
-    compile project(':logmanager')
+    //compile project(':logmanager')
+    compile 'com.github.wickerlabs:CallLogs:1+@aar'
 }
