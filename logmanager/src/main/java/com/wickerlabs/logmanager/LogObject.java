@@ -16,6 +16,9 @@ public class LogObject implements CallLogObject {
     private int duration, type;
     private Context context;
 
+    public LogObject() {
+    }
+
     public LogObject(Context context) {
         this.context = context;
     }
