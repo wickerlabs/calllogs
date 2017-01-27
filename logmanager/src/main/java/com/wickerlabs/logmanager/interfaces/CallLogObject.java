@@ -19,24 +19,24 @@ package com.wickerlabs.logmanager.interfaces;
 
 public interface CallLogObject {
 
-    public String getNumber();
+    String getNumber();
 
-    public void setNumber(String number);
+    void setNumber(String number);
 
-    public int getType();
+    int getType();
 
-    public void setType(int type);
+    void setType(int type);
 
-    public long getDate();
+    long getDate();
 
-    public void setDate(long date);
+    void setDate(long date);
 
-    public int getDuration();
+    int getDuration();
 
-    public void setDuration(int duration);
+    void setDuration(int duration);
 
-    public String getCoolDuration();
+    String getCoolDuration();
 
-    public String getContactName();
+    String getContactName();
 
 }
