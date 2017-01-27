@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/CallLogs.iml" filepath="$PROJECT_DIR$/CallLogs.iml" />
       <module fileurl="file://$PROJECT_DIR$/LogManager.iml" filepath="$PROJECT_DIR$/LogManager.iml" />
       <module fileurl="file://$PROJECT_DIR$/SampleApp/SampleApp.iml" filepath="$PROJECT_DIR$/SampleApp/SampleApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/logmanager/logmanager.iml" filepath="$PROJECT_DIR$/logmanager/logmanager.iml" />

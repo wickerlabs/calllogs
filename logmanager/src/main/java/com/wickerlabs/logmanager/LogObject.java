@@ -6,9 +6,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
+import com.wickerlabs.logmanager.interfaces.CallLogObject;
+
 import java.text.DecimalFormat;
 
-public class LogObject {
+public class LogObject implements CallLogObject {
     private String number;
     private long date;
     private int duration, type;
