@@ -25,20 +25,27 @@ Installation
 
 **Step 3**. Handle permissions (For API 23+)
 
-    For those targeting API 23+, you should handle the runtime permissions for READ_CONTACTS and READ_CALL_LOG. As a reference, check  out the sample app in the repository. Other than that, permissions are automatically added to the manifest file.
+    For those targeting API 23+, 
+    you should handle the runtime permissions for READ_CONTACTS and READ_CALL_LOG. 
+    As a reference, check  out the sample app in the repository. 
+    Other than that, permissions are automatically added to the manifest file.
 
 Usage
 -------------
 
  - Initialization
 
-     `LogsManager logsManager = new LogsManager(context);`
+     ```java
+     LogsManager logsManager = new LogsManager(context);
+     ```
 
  
  - Getting a list of call logs
  
 
-     `List<LogObject> callLogs = logsManager.getLogs(type);`
+     ```java
+     List<LogObject> callLogs = logsManager.getLogs(type);
+     ```
 
   
   >  Available list types :
@@ -85,13 +92,15 @@ Using LogObjects
 
 Examples
 --------
-Retriving a list of all call logs:
+- Retriving a list of all call logs:
 
-     ListView logList = (ListView) findViewById(R.id.LogsList);
-     LogsManager logsManager = new LogsManager(this);
-     List<LogObject> callLogs = logsManager.getLogs(LogsManager.ALL_CALLS);
-     LogsAdapter logsAdapter = new LogsAdapter(this, R.layout.log_layout, callLogs);
-     logList.setAdapter(logsAdapter);
+	```java
+	ListView logList = (ListView) findViewById(R.id.LogsList);
+	LogsManager logsManager = new LogsManager(this);
+	List<LogObject> callLogs = logsManager.getLogs(LogsManager.ALL_CALLS);
+	LogsAdapter logsAdapter = new LogsAdapter(this, R.layout.log_layout, callLogs);
+	logList.setAdapter(logsAdapter);
+	```
 
 
 be sure to check out the [sample](https://github.com/wickerlabs/CallLogs/tree/master/SampleApp) app in the repository.
@@ -105,9 +114,14 @@ License
 
     Copyright 2016 Wickerlabs.
     
-    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+    Licensed under the Apache License, Version 2.0 (the "License"); 
+    you may not use this file except in compliance with the License. 
+    You may obtain a copy of the License at
     
     http://www.apache.org/licenses/LICENSE-2.0
     
-    Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+    Unless required by applicable law or agreed to in writing, 
+    software distributed under the License is distributed on an "AS IS" BASIS, 
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
+    See the License for the specific language governing permissions and limitations under the License.
 
