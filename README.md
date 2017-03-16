@@ -48,15 +48,15 @@ Usage
      ```
 
   
-  >  Available list types :
-  >  
-  >  ***LogsManager.INCOMING_CALLS***: for getting the list (LogObject) of all the incoming calls.
-  >  
-  >  ***LogsManager.OUTGOING_CALLS***: for getting the list (LogObject) of all the incoming calls.
-  >  
-  >  ***LogsManager.MISSED_CALLS***: for getting the list (LogObject) of all the incoming calls.
-  >  
-  >  ***LogsManager.ALL_CALLS***: for getting the list (LogObject) of all the calls.
+  - Available list types :
+	 >  
+	 >  ***LogsManager.INCOMING_CALLS***: for getting the list (LogObject) of all the incoming calls.
+	 >  
+	 >  ***LogsManager.OUTGOING_CALLS***: for getting the list (LogObject) of all the incoming calls.
+	 >  
+	 >  ***LogsManager.MISSED_CALLS***: for getting the list (LogObject) of all the incoming calls.
+	 >  
+	 >  ***LogsManager.ALL_CALLS***: for getting the list (LogObject) of all the calls.
  
  - Getting call durations
  
@@ -68,13 +68,13 @@ Usage
 
  `logsManager.getCoolDuration(type)`: returns a String in the form of  "***x* hrs *xx* mins**" or "***xx* mins *xx* secs**"
  
- >  Available duration types :
->  
->  ***LogsManager.INCOMING***: for getting duration for all the incoming calls.
->  
->  ***LogsManager.OUTGOING***: for getting duration for all the incoming calls.
->  
->    ***LogsManager.TOTAL***: for getting duration for all the calls.
+  - Available duration types :
+	>  
+	>  ***LogsManager.INCOMING***: for getting duration for all the incoming calls.
+	>  
+	>  ***LogsManager.OUTGOING***: for getting duration for all the incoming calls.
+	>  
+	>    ***LogsManager.TOTAL***: for getting duration for all the calls.
 
 Using LogObjects
 --------------------
