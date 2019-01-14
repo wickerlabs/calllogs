@@ -4,11 +4,94 @@
 [![](https://jitpack.io/v/wickerlabs/CallLogs.svg)](https://jitpack.io/#wickerlabs/CallLogs)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Call%20logs-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4523)
 
-![Image of the library in action](https://i0.wp.com/wickerlabs.com/wp-content/uploads/2017/03/call_log.png "screenshot")
+![Image of the library in action](https://s25.postimg.org/3pxthhhhr/device_2016_10_13_150816.png "screenshot")
 
-Usage Details:
---------------
-Visit [Here](http://wickerlabs.com/call-logs/) to get detailed information on how to use the library.
+
+Installation
+-------------
+
+ **Step 1**. Add the JitPack repository to your root build.gradle file.
+ 
+
+    allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+
+**Step 2**. Add the library dependency to your app build.gradle file
+
+    dependencies {
+	        compile 'com.github.wickerlabs:CallLogs:1+@aar'
+	}
+
+**Step 3**. Handle permissions (For API 23+)
+
+    For those targeting API 23+, 
+    you should handle the runtime permissions for READ_CONTACTS and READ_CALL_LOG. 
+    As a reference, check  out the sample app in the repository. 
+    Other than that, permissions are automatically added to the manifest file.
+
+Usage
+-------------
+
+ - Initialization
+
+     ```java
+     LogsManager logsManager = new LogsManager(context);
+     ```
+
+ 
+ - Getting a list of call logs
+ 
+
+     ```java
+     List<LogObject> callLogs = logsManager.getLogs(type);
+     ```
+
+  
+  - Available list types :
+	 >  
+	 >  ***LogsManager.INCOMING_CALLS***: for getting the list (LogObject) of all the incoming calls.
+	 >  
+	 >  ***LogsManager.OUTGOING_CALLS***: for getting the list (LogObject) of all the incoming calls.
+	 >  
+	 >  ***LogsManager.MISSED_CALLS***: for getting the list (LogObject) of all the incoming calls.
+	 >  
+	 >  ***LogsManager.ALL_CALLS***: for getting the list (LogObject) of all the calls.
+ 
+ - Getting call durations
+ 
+ `logsManager.getIncomingDuration()`: returns the number of seconds for all the incoming calls made.
+ 
+ `logsManager.getOutgoingDuration()`: returns the number of seconds for all the outgoing calls made.
+
+  `logsManager.getTotalDuration()`: returns the number of seconds for all the calls made.
+
+ `logsManager.getCoolDuration(type)`: returns a String in the form of  "***x* hrs *xx* mins**" or "***xx* mins *xx* secs**"
+ 
+  - Available duration types :
+	>  
+	>  ***LogsManager.INCOMING***: for getting duration for all the incoming calls.
+	>  
+	>  ***LogsManager.OUTGOING***: for getting duration for all the incoming calls.
+	>  
+	>    ***LogsManager.TOTAL***: for getting duration for all the calls.
+
+Using LogObjects
+--------------------
+- Some useful methods
+ 
+ `logObject.getDuration()`: returns an `int`  of the seconds used for that particular call.
+ 
+ `logObject.getNumber()`: returns a `String` of the number associated with the call made.
+
+ `logObject.getContactName()`: returns a `String` of the contact name for the number in the log, if not found, it returns the number.
+
+  `logObject.getType()`: returns an `int` for the type of the call log.
+
+ `logObject.getCoolDuration()`: returns a `String` in the form of  "***x* hrs *xx* mins**" or "***xx* mins *xx* secs**" based on the duration.
 
 Examples
 --------
