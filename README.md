@@ -4,7 +4,7 @@
 [![](https://jitpack.io/v/wickerlabs/CallLogs.svg)](https://jitpack.io/#wickerlabs/CallLogs)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Call%20logs-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/4523)
 
-![Image of the library in action](https://s25.postimg.org/3pxthhhhr/device_2016_10_13_150816.png "screenshot")
+![Image of the library in action](https://i.postimg.cc/wj1LPND3/device-2016-10-13-150816.png "screenshot")
 
 
 Installation
